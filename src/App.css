@@ -1,0 +1,23 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 0.5rem;
+  background-color: #d8d5d5;
+  color: black;
+}
+
+.card {
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.15);
+  padding: 10px 20px;
+}
