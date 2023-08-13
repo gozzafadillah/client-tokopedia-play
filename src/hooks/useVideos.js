@@ -10,7 +10,7 @@ const useGetVideos = () => {
       try {
         setLoading(true);
         const response = await VideoAPI.getVideos();
-        setVideos(response.data);
+        setVideos(response.videos);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching videos:", error);

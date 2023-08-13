@@ -1,13 +1,20 @@
 import axiosInstance from "../axios/AxiosConfiguration";
 
 const UserAPI = {
-  async login(username, password) {
+  async login(email, password) {
     try {
       const response = await axiosInstance.post("/users/signin", {
-        username,
+        email,
         password,
       });
-      localStorage.setItem("token", response.data.response.token);
+      localStorage.setItem(
+        "accessToken",
+        response.data.response.tokens.accessToken
+      );
+      localStorage.setItem(
+        "refreshToken",
+        response.data.response.tokens.refreshToken
+      );
     } catch (error) {
       throw error.response;
     }
