@@ -8,12 +8,11 @@ const Home = () => {
   return (
     <div
       style={{
-        height: "80vh",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignContent: "center",
-        padding: "0 10%",
+        padding: "0 5%",
       }}
     >
       <div className="Login">
@@ -21,22 +20,24 @@ const Home = () => {
       </div>
 
       <div className="card-content">
-        <div className="card">
-          <h1>Cek</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
-            ullam illum quod, enim aperiam aspernatur nostrum repellat. Error,
-            inventore incidunt.
-          </p>
-        </div>
-        <div className="card">
-          <h1>Cek</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
-            ullam illum quod, enim aperiam aspernatur nostrum repellat. Error,
-            inventore incidunt.
-          </p>
-        </div>
+        {!loading ? (
+          videos.map((video) => (
+            <>
+              <div className="card">
+                <h1>{video.title}</h1>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Sapiente ullam illum quod, enim aperiam aspernatur nostrum
+                  repellat. Error, inventore incidunt.
+                </p>
+              </div>
+            </>
+          ))
+        ) : (
+          <>
+            <h1>Loading...</h1>
+          </>
+        )}
       </div>
     </div>
   );
