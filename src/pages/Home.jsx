@@ -1,43 +1,25 @@
-import { useNavigate } from "react-router-dom";
-import useGetVideos from "../hooks/useVideos";
+import React from "react";
+import "../assets/css/App.css";
+import useVideos from "../hooks/useVideos";
+import Card from "../components/Card";
 
 const Home = () => {
-  const navigate = useNavigate();
-  const { videos, loading } = useGetVideos();
+  const { videos, loading } = useVideos();
   console.log(videos, loading);
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignContent: "center",
-        padding: "0 5%",
-      }}
-    >
-      <div className="Login">
-        <button onClick={() => navigate("/login")}>Login</button>
-      </div>
-
-      <div className="card-content">
-        {!loading ? (
-          videos.map((video) => (
-            <>
-              <div className="card">
-                <h1>{video.title}</h1>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Sapiente ullam illum quod, enim aperiam aspernatur nostrum
-                  repellat. Error, inventore incidunt.
-                </p>
-              </div>
-            </>
-          ))
-        ) : (
-          <>
-            <h1>Loading...</h1>
-          </>
-        )}
+    <div>
+      <h1>Home</h1>
+      <div className="container" style={{ padding: "3vh 5vw" }}>
+        <div
+          className="card-content"
+          style={{ display: "flex", flexWrap: "wrap" }}
+        >
+          {!loading ? (
+            videos.map((video) => <Card data={video} />)
+          ) : (
+            <p>Loading</p>
+          )}
+        </div>
       </div>
     </div>
   );
