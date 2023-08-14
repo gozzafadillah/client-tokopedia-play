@@ -6,13 +6,14 @@ const useVideos = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const getVideos = async () => {
-      const response = await videosApi.getVideos();
-      setVideos(response.data.videos);
-      setLoading(false);
-    };
-
-    getVideos();
+    setTimeout(() => {
+      const getVideos = async () => {
+        const response = await videosApi.getVideos();
+        setVideos(response.data.videos);
+        setLoading(false);
+      };
+      getVideos();
+    }, 3500);
   }, []);
 
   return { videos, loading };

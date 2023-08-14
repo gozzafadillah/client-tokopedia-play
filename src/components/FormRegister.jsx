@@ -8,7 +8,7 @@ import {
   Button,
 } from "@chakra-ui/react";
 
-const FormLogin = () => {
+const FormRegister = () => {
   const {
     handleSubmit,
     register,
@@ -43,6 +43,23 @@ const FormLogin = () => {
           {errors.email && errors.email.message}
         </FormErrorMessage>
       </FormControl>
+      <FormControl isInvalid={errors.name} width={"20rem"}>
+        <FormLabel htmlFor="name">Full Name</FormLabel>
+        <Input
+          id="name"
+          placeholder="Full Name"
+          {...register("name", {
+            required: "This is required",
+            pattern: {
+              value: /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/,
+              message: "Alphabetic only!",
+            },
+          })}
+        />
+        <FormErrorMessage>
+          {errors.name && errors.name.message}
+        </FormErrorMessage>
+      </FormControl>
       <FormControl isInvalid={errors.password}>
         <FormLabel htmlFor="password">Password</FormLabel>
         <Input
@@ -65,4 +82,4 @@ const FormLogin = () => {
   );
 };
 
-export default FormLogin;
+export default FormRegister;

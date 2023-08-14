@@ -2,7 +2,7 @@ import { Image } from "@chakra-ui/image";
 import { Box, Text } from "@chakra-ui/layout";
 import React from "react";
 
-const Card = ({ data }) => {
+const CardSkeleton = () => {
   return (
     <Box border={{ base: "1px solid teal" }}>
       <Box position="relative">
@@ -17,9 +17,9 @@ const Card = ({ data }) => {
           p={2}
         >
           <Box height={{ base: "8rem", md: "7rem", sm: "8rem" }}>
-            <Text>{data.description}</Text>
-            <Text>{data.title}</Text>
-            <Text>{data.views} views</Text>
+            <Text>Description</Text>
+            <Text>tittle</Text>
+            <Text>views</Text>
           </Box>
         </Box>
       </Box>
@@ -27,4 +27,4 @@ const Card = ({ data }) => {
   );
 };
 
-export default Card;
+export default CardSkeleton;
