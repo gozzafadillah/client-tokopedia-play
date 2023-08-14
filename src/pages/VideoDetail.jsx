@@ -1,65 +1,36 @@
-import { Box, Flex, Heading, List, ListItem, Text } from "@chakra-ui/react";
+import { Box, Card, Flex } from "@chakra-ui/react";
 import { useParams } from "react-router";
 import Comment from "../components/Comment";
 import FormComment from "../components/FormComment";
-
-const product = {
-  id: 1,
-  name: "Product 1",
-  description: "This is a description of product 1.",
-};
-
-const relatedProducts = [
-  { id: 2, name: "Product 2" },
-  { id: 3, name: "Product 3" },
-  { id: 4, name: "Product 4" },
-];
+import VideoContent from "../components/VideoContent";
+import ListProduct from "../components/ListProduct";
 
 const VideoDetail = () => {
   const param = useParams();
 
   return (
     <>
-      <Flex>
+      <Flex flexWrap={"wrap"}>
         {/* Left sidebar */}
-        <Box flex="0.5" p={4}>
-          <Heading size="md" mb={2}>
-            Related Products
-          </Heading>
-          <List spacing={2}>
-            {relatedProducts.map((relatedProduct) => (
-              <ListItem key={relatedProduct.id}>
-                <Text>{relatedProduct.name}</Text>
-              </ListItem>
-            ))}
-          </List>
-        </Box>
+        <Card
+          flex={{ base: "0.5", md: "0.5", sm: "0.2" }}
+          h={{ md: "92vh", sm: "auto" }}
+          border={{ sm: "0" }}
+          p={4}
+        >
+          <ListProduct param={param} />
+        </Card>
 
         {/* Main content */}
-        <Box flex="3" p={4}>
-          <Heading size="lg" mb={4}>
-            {product.name}
-          </Heading>
-          <Box mb={4}>
-            {/* Replace with your video component */}
-            <Box
-              bg="gray.200"
-              h="300px"
-              display="flex"
-              alignItems="center"
-              justifyContent="center"
-            >
-              Video
-            </Box>
-          </Box>
-          <Text>{product.description}</Text>
+        <Box flex="1.8" p={4}>
+          <VideoContent param={param} />
         </Box>
 
         {/* Right sidebar */}
-        <Box flex={1.5}>
+        <Card flex={"1.5"}>
           <Comment param={param} />
           <FormComment param={param} />
-        </Box>
+        </Card>
       </Flex>
     </>
   );

@@ -29,6 +29,15 @@ const UserApi = {
       throw error;
     }
   },
+
+  async profile() {
+    try {
+      const response = await AxiosInstance.get("/users/profile");
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  },
 };
 
 export default UserApi;

@@ -9,6 +9,14 @@ const videosApi = {
       throw error;
     }
   },
+  async getVideoById(id) {
+    try {
+      const response = await AxiosInstance.get(`/videos/${id}`);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  },
 };
 
 export default videosApi;

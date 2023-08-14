@@ -2,7 +2,6 @@ import React from "react";
 import "../assets/css/App.css";
 import useVideos from "../hooks/useVideos";
 import Card from "../components/Card";
-import Navbar from "../components/Navbar";
 import { Box, Flex } from "@chakra-ui/layout";
 import { useNavigate } from "react-router";
 import { Skeleton } from "@chakra-ui/react";
