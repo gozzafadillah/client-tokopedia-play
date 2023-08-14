@@ -17,6 +17,18 @@ const UserApi = {
       throw error;
     }
   },
+  async register({ email, username, password }) {
+    try {
+      const response = await AxiosInstance.post("/users/signup", {
+        email,
+        username,
+        password,
+      });
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  },
 };
 
 export default UserApi;

@@ -7,6 +7,7 @@ import {
   Input,
   Button,
 } from "@chakra-ui/react";
+import UserApi from "../api/user.api";
 
 const FormRegister = () => {
   const {
@@ -17,12 +18,18 @@ const FormRegister = () => {
 
   function onSubmit(values) {
     return new Promise((resolve) => {
-      setTimeout(() => {
-        alert(JSON.stringify(values, null, 2));
+      setTimeout(async () => {
+        const _ = await UserApi.register({
+          email: values.email,
+          password: values.password,
+          username: values.name,
+        });
+        window.location.href = "/";
         resolve();
       }, 3000);
     });
   }
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <FormControl isInvalid={errors.email} width={"20rem"}>
@@ -50,10 +57,6 @@ const FormRegister = () => {
           placeholder="Full Name"
           {...register("name", {
             required: "This is required",
-            pattern: {
-              value: /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/,
-              message: "Alphabetic only!",
-            },
           })}
         />
         <FormErrorMessage>
