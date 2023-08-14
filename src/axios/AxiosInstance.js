@@ -1,8 +1,7 @@
 import axios from "axios";
 
 const config = {
-  //   baseURL: "https://api.intelligo.id/api",
-  baseURL: "http://localhost:3000",
+  baseURL: "http://localhost:4000",
   headers: {
     Authorization: "Bearer " + localStorage.getItem("accessToken"),
     "Content-Type": "application/json",
