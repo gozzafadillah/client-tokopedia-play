@@ -27,7 +27,7 @@ const Home = () => {
               <Box
                 key={index}
                 cursor={"pointer"}
-                onClick={() => navigate("/videos/1")}
+                onClick={() => navigate("/videos/" + video.videoID)}
               >
                 <Card data={video} />
               </Box>

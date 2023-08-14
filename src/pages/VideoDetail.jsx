@@ -1,12 +1,7 @@
-import {
-  Box,
-  Flex,
-  Heading,
-  List,
-  ListItem,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
+import { Box, Flex, Heading, List, ListItem, Text } from "@chakra-ui/react";
+import { useParams } from "react-router";
+import Comment from "../components/Comment";
+import FormComment from "../components/FormComment";
 
 const product = {
   id: 1,
@@ -20,18 +15,14 @@ const relatedProducts = [
   { id: 4, name: "Product 4" },
 ];
 
-const comments = [
-  { id: 1, text: "This is a great product!" },
-  { id: 2, text: "I love this product!" },
-  { id: 3, text: "This product is amazing!" },
-];
-
 const VideoDetail = () => {
+  const param = useParams();
+
   return (
     <>
       <Flex>
         {/* Left sidebar */}
-        <Box flex="1" p={4}>
+        <Box flex="0.5" p={4}>
           <Heading size="md" mb={2}>
             Related Products
           </Heading>
@@ -65,17 +56,9 @@ const VideoDetail = () => {
         </Box>
 
         {/* Right sidebar */}
-        <Box flex="1" p={4}>
-          <Heading size="md" mb={2}>
-            Comments
-          </Heading>
-          <VStack spacing={2} overflowY="scroll" maxH="80vh">
-            {comments.map((comment) => (
-              <Box key={comment.id} p={2} bg="gray.100" borderRadius="md">
-                <Text>{comment.text}</Text>
-              </Box>
-            ))}
-          </VStack>
+        <Box flex={1.5}>
+          <Comment param={param} />
+          <FormComment param={param} />
         </Box>
       </Flex>
     </>
