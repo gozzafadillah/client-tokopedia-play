@@ -1,44 +1,52 @@
-import { useNavigate } from "react-router-dom";
-import useGetVideos from "../hooks/useVideos";
+import React from "react";
+import "../assets/css/App.css";
+import useVideos from "../hooks/useVideos";
+import Card from "../components/Card";
+import Navbar from "../components/Navbar";
+import { Box, Flex } from "@chakra-ui/layout";
+import { useNavigate } from "react-router";
+import { Skeleton } from "@chakra-ui/react";
+import CardSkeleton from "../components/CardSkeleton";
 
 const Home = () => {
+  const { videos, loading } = useVideos();
   const navigate = useNavigate();
-  const { videos, loading } = useGetVideos();
-  console.log(videos, loading);
+  console.log(loading);
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignContent: "center",
-        padding: "0 5%",
-      }}
-    >
-      <div className="Login">
-        <button onClick={() => navigate("/login")}>Login</button>
-      </div>
-
-      <div className="card-content">
-        {!loading ? (
-          videos.map((video) => (
+    <div>
+      <Box padding={{ base: "2rem", md: "2rem", sm: "1.5rem" }}>
+        <Flex
+          justify={{ base: "center" }}
+          align={{ base: "center" }}
+          gap={{ base: "1rem" }}
+          flexWrap={"wrap"}
+          flex={{ base: 1 }}
+        >
+          {loading !== true ? (
+            videos.map((video, index) => (
+              <Box
+                key={index}
+                cursor={"pointer"}
+                onClick={() => navigate("/videos/" + video.videoID)}
+              >
+                <Card data={video} />
+              </Box>
+            ))
+          ) : (
             <>
-              <div className="card">
-                <h1>{video.title}</h1>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Sapiente ullam illum quod, enim aperiam aspernatur nostrum
-                  repellat. Error, inventore incidunt.
-                </p>
-              </div>
+              {Array(10)
+                .fill("")
+                .map((_, index) => (
+                  <Box key={index}>
+                    <Skeleton>
+                      <CardSkeleton />
+                    </Skeleton>
+                  </Box>
+                ))}
             </>
-          ))
-        ) : (
-          <>
-            <h1>Loading...</h1>
-          </>
-        )}
-      </div>
+          )}
+        </Flex>
+      </Box>
     </div>
   );
 };

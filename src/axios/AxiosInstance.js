@@ -1,10 +1,10 @@
 import axios from "axios";
 
 const config = {
+  //   baseURL: "https://api.intelligo.id/api",
   baseURL: "http://localhost:3000",
-  // baseURL: "https://midterm-project-production-f154.up.railway.app",
   headers: {
-    Authorization: "Bearer " + localStorage.getItem("token"),
+    Authorization: "Bearer " + localStorage.getItem("accessToken"),
     "Content-Type": "application/json",
   },
 };
