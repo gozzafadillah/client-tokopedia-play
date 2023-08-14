@@ -6,7 +6,12 @@ const Card = ({ data }) => {
   return (
     <Box border={{ base: "1px solid teal" }}>
       <Box position="relative">
-        <Image src="https://picsum.photos/200/500" alt="..." />
+        <Image
+          width={"16rem"}
+          height={"50vh"}
+          src={data.urlImageThumbnail}
+          alt="..."
+        />
         <Box
           position="absolute"
           bottom={0}

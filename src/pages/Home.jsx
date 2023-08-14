@@ -14,7 +14,6 @@ const Home = () => {
   console.log(loading);
   return (
     <div>
-      <Navbar />
       <Box padding={{ base: "2rem", md: "2rem", sm: "1.5rem" }}>
         <Flex
           justify={{ base: "center" }}

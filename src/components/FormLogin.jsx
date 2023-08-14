@@ -7,6 +7,8 @@ import {
   Input,
   Button,
 } from "@chakra-ui/react";
+import UserApi from "../api/user.api";
+import { useNavigate } from "react-router";
 
 const FormLogin = () => {
   const {
@@ -14,11 +16,13 @@ const FormLogin = () => {
     register,
     formState: { errors, isSubmitting },
   } = useForm();
+  const navigate = useNavigate();
 
   function onSubmit(values) {
     return new Promise((resolve) => {
-      setTimeout(() => {
-        alert(JSON.stringify(values, null, 2));
+      setTimeout(async () => {
+        await UserApi.login(values);
+        navigate("/");
         resolve();
       }, 3000);
     });

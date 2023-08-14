@@ -3,7 +3,16 @@ import AxiosInstance from "../axios/AxiosInstance";
 const UserApi = {
   async login(user) {
     try {
-      await AxiosInstance.get("/login", user);
+      const response = await AxiosInstance.post("/users/signin", user);
+      console.log(response.data.response.tokens);
+      localStorage.setItem(
+        "accessToken",
+        response.data.response.tokens.accessToken
+      );
+      localStorage.setItem(
+        "refreshToken",
+        response.data.response.tokens.refreshToken
+      );
     } catch (error) {
       throw error;
     }

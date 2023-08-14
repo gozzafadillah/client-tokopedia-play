@@ -7,7 +7,6 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import Navbar from "../components/Navbar";
 
 const product = {
   id: 1,
@@ -27,10 +26,9 @@ const comments = [
   { id: 3, text: "This product is amazing!" },
 ];
 
-const ProductDetail = () => {
+const VideoDetail = () => {
   return (
     <>
-      <Navbar />
       <Flex>
         {/* Left sidebar */}
         <Box flex="1" p={4}>
@@ -84,4 +82,4 @@ const ProductDetail = () => {
   );
 };
 
-export default ProductDetail;
+export default VideoDetail;
