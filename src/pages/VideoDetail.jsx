@@ -1,4 +1,4 @@
-import { Box, Card, Flex } from "@chakra-ui/react";
+import { Box, Card, Flex, Link } from "@chakra-ui/react";
 import { useParams } from "react-router";
 import Comment from "../components/Comment";
 import FormComment from "../components/FormComment";
@@ -29,7 +29,13 @@ const VideoDetail = () => {
         {/* Right sidebar */}
         <Card flex={"1.5"}>
           <Comment param={param} />
-          <FormComment param={param} />
+          {!localStorage.getItem("accessToken") ? (
+            <Box textAlign={"center"} alignItems={"center"}>
+              <Link href="/login">Login to comment</Link>
+            </Box>
+          ) : (
+            <FormComment param={param} />
+          )}
         </Card>
       </Flex>
     </>
