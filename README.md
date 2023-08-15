@@ -41,3 +41,9 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 - React Router
 - React Hook Form
 - React Player
+
+## Demo
+
+- untuk login sedikit delay saat muncul icon avatar dan nama user perlu di refresh (terkadang)
+
+untuk demo bisa di cek di link berikut [https://fadillah-tokopedia-play.vercel.app/](https://fadillah-tokopedia-play.vercel.app/)
