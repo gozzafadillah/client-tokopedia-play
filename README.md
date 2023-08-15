@@ -47,3 +47,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 - untuk login sedikit delay saat muncul icon avatar dan nama user perlu di refresh (terkadang)
 
 untuk demo bisa di cek di link berikut [https://fadillah-tokopedia-play.vercel.app/](https://fadillah-tokopedia-play.vercel.app/)
+
+## Image docker hub
+
+untuk docker hub bisa di cek di link berikut [https://hub.docker.com/repository/docker/gozzafadillah/final_project_client/general](https://hub.docker.com/repository/docker/gozzafadillah/final_project_client/general)
